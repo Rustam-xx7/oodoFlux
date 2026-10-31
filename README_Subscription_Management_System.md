@@ -64,7 +64,6 @@ The system aims to replace fragmented manual processes with a reliable,
 centralized workflow.
 
 ### Problems addressed
-
   -----------------------------------------------------------------------
   Existing problem                    System capability
   ----------------------------------- -----------------------------------
