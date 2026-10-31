@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --foreground: #f8fafc;
-  --background: #090d16;
+  --background: #FFFFFF;
+  --foreground: #334155;
+  --heading: #0F172A;
+  --muted: #64748B;
+  --border: #E2E8F0;
+  --primary: #4F46E5;
 }
 
 body {
@@ -15,23 +19,44 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Glassmorphism helpers */
-.glass-panel {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* Light Enterprise SaaS Elevated Surfaces */
+.glass-panel,
+.saas-panel {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
 }
 
-.glass-card {
-  background: rgba(30, 41, 59, 0.5);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: all 0.25s ease-in-out;
+.glass-card,
+.saas-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-card:hover {
-  border-color: rgba(99, 102, 241, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
-  transform: translateY(-2px);
+.glass-card:hover,
+.saas-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 6px 16px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+  transform: translateY(-1px);
+}
+
+/* Custom scrollbar for sleek Enterprise UI */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }
