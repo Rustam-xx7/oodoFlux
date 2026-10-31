@@ -1,7 +1,7 @@
 # Subscription Management System
 
 > A unified platform for managing products, subscription plans, customer
-> subscriptions, recurring invoices, payments, and revenue reporting.
+> subscriptions, recurring invoices, payments, and revenue reporting .
 
 ## Project Overview
 
