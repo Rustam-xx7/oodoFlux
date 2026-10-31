@@ -1,0 +1,45 @@
+{
+  "name": "subscription-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unified Subscription Management System with recurring billing and analytics",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:worker\" \"npm run dev:web\"",
+    "dev:api": "npm run --workspace=@sms/api dev",
+    "dev:worker": "npm run --workspace=@sms/worker dev",
+    "dev:web": "npm run --workspace=@sms/web dev",
+    "build": "npm run build --workspaces --if-present",
+    "build:api": "npm run --workspace=@sms/api build",
+    "build:worker": "npm run --workspace=@sms/worker build",
+    "build:web": "npm run --workspace=@sms/web build",
+    "test": "npm run --workspace=@sms/api test",
+    "test:e2e": "npm run --workspace=@sms/api test:e2e",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev"
+  },
+  "overrides": {
+    "rxjs": "7.8.1"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^22.10.2",
+    "concurrently": "^9.1.0",
+    "prettier": "^3.4.2",
+    "prisma": "^6.1.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "jsonwebtoken": "^9.0.3"
+  }
+}

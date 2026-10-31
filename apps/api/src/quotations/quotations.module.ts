@@ -1,0 +1,13 @@
+import { Module } from '@nestjs/common';
+import { QuotationsService } from './quotations.service';
+import { QuotationsController } from './quotations.controller';
+import { AuthModule } from '../auth/auth.module';
+import { PricingModule } from '../pricing/pricing.module';
+
+@Module({
+  imports: [AuthModule, PricingModule],
+  controllers: [QuotationsController],
+  providers: [QuotationsService],
+  exports: [QuotationsService],
+})
+export class QuotationsModule {}

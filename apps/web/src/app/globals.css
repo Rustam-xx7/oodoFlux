@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: #f8fafc;
+  --background: #090d16;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.25s ease-in-out;
+}
+
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
