@@ -306,56 +306,56 @@ export default function SubscriptionManagementSystem() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090d16] text-slate-100 flex flex-col justify-between selection:bg-indigo-500/30">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#334155] flex flex-col justify-between selection:bg-[#EEF2FF] selection:text-[#4F46E5]">
       {/* Top Application Header */}
-      <header className="glass-panel sticky top-0 z-50 px-6 py-3.5 border-b border-white/10">
+      <header className="bg-[#FFFFFF] border-b border-[#E2E8F0] sticky top-0 z-50 px-6 py-3.5 shadow-xs">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/25">
-              <span className="font-extrabold text-white text-lg tracking-wider">SMS</span>
+            <div className="w-10 h-10 rounded-xl bg-[#4F46E5] flex items-center justify-center shadow-sm">
+              <span className="font-extrabold text-white text-base tracking-wider">SMS</span>
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="font-bold text-white text-base leading-tight">
+                <h1 className="font-bold text-[#0F172A] text-base leading-tight">
                   Subscription Management System
                 </h1>
-                <span className="px-2 py-0.5 text-[10px] uppercase font-mono rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                <span className="px-2 py-0.5 text-[10px] uppercase font-mono rounded bg-[#EEF2FF] text-[#4F46E5] border border-[#C7D2FE] font-medium">
                   v1.0 Enterprise
                 </span>
               </div>
-              <p className="text-xs text-slate-400">Recurring Billing &bull; Product Catalog &bull; Analytics</p>
+              <p className="text-xs text-[#64748B]">Recurring Billing &bull; Product Catalog &bull; Financial Analytics</p>
             </div>
           </div>
 
           {/* Quick Role Switcher */}
-          <div className="flex items-center gap-2 bg-slate-900/80 p-1.5 rounded-xl border border-white/10 text-xs">
-            <span className="text-slate-400 font-medium px-2 hidden sm:inline">Role:</span>
+          <div className="flex items-center gap-1.5 bg-[#F8FAFC] p-1.5 rounded-xl border border-[#E2E8F0] text-xs">
+            <span className="text-[#64748B] font-medium px-2 hidden sm:inline">Role:</span>
             <button
               onClick={() => loginAs('admin@oodoflux.com', 'ADMIN')}
-              className={`px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                 currentRole === 'ADMIN'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/20'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-[#4F46E5] text-white shadow-xs'
+                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
               }`}
             >
               👑 Admin (Full Access)
             </button>
             <button
               onClick={() => loginAs('staff@oodoflux.com', 'STAFF')}
-              className={`px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                 currentRole === 'STAFF'
-                  ? 'bg-purple-600 text-white shadow-md shadow-purple-500/20'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-[#4338CA] text-white shadow-xs'
+                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
               }`}
             >
               💼 Staff (Ops)
             </button>
             <button
               onClick={() => loginAs('customer@acme.com', 'CUSTOMER')}
-              className={`px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5 cursor-pointer ${
+              className={`px-3 py-1.5 rounded-lg font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                 currentRole === 'CUSTOMER'
-                  ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/20'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-[#059669] text-white shadow-xs'
+                  : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
               }`}
             >
               👤 Client Portal
@@ -366,18 +366,16 @@ export default function SubscriptionManagementSystem() {
 
       {/* Global Toast Notification */}
       {message && (
-        <div
-          className={`max-w-7xl mx-auto px-6 mt-4 w-full transition-all animate-bounce`}
-        >
+        <div className="max-w-7xl mx-auto px-6 mt-4 w-full transition-all">
           <div
-            className={`p-3.5 rounded-xl text-sm font-medium border flex items-center justify-between ${
+            className={`p-3.5 rounded-xl text-sm font-medium border shadow-xs flex items-center justify-between ${
               message.type === 'success'
-                ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
-                : 'bg-rose-500/10 border-rose-500/30 text-rose-300'
+                ? 'bg-[#ECFDF5] border-[#A7F3D0] text-[#059669]'
+                : 'bg-[#FEE2E2] border-[#FECACA] text-[#DC2626]'
             }`}
           >
             <span>{message.text}</span>
-            <button onClick={() => setMessage(null)} className="text-xs opacity-75 hover:opacity-100 cursor-pointer">
+            <button onClick={() => setMessage(null)} className="text-xs font-bold opacity-75 hover:opacity-100 cursor-pointer">
               ✕
             </button>
           </div>
@@ -385,15 +383,15 @@ export default function SubscriptionManagementSystem() {
       )}
 
       {/* Secondary Navigation Sub-Bar */}
-      <nav className="glass-panel px-6 py-2 border-b border-white/5 overflow-x-auto">
+      <nav className="bg-[#F8FAFC] border-b border-[#E2E8F0] px-6 py-2 overflow-x-auto">
         <div className="max-w-7xl mx-auto flex items-center gap-2 text-xs">
           {/* Client Tab */}
           <button
             onClick={() => setActiveTab('models')}
-            className={`px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+            className={`px-3 py-1.5 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'models'
-                ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-[#EEF2FF] text-[#4F46E5] border border-[#C7D2FE] font-semibold shadow-2xs'
+                : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
             }`}
           >
             ✨ Subscription Models (Client Catalog)
@@ -402,10 +400,10 @@ export default function SubscriptionManagementSystem() {
           {/* Customer Portal Tab */}
           <button
             onClick={() => setActiveTab('customer-portal')}
-            className={`px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+            className={`px-3 py-1.5 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
               activeTab === 'customer-portal'
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-[#ECFDF5] text-[#059669] border border-[#A7F3D0] font-semibold shadow-2xs'
+                : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
             }`}
           >
             👤 My Subscriptions & Invoices
@@ -414,83 +412,83 @@ export default function SubscriptionManagementSystem() {
           {/* Admin Tabs */}
           {(currentRole === 'ADMIN' || currentRole === 'STAFF') && (
             <>
-              <div className="h-4 w-px bg-white/10 mx-1" />
+              <div className="h-4 w-px bg-[#E2E8F0] mx-1" />
               <button
                 onClick={() => setActiveTab('admin-dashboard')}
-                className={`px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   activeTab === 'admin-dashboard'
-                    ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-[#EEF2FF] text-[#4F46E5] border border-[#C7D2FE] font-semibold shadow-2xs'
+                    : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
                 }`}
               >
                 📊 Analytics Overview
               </button>
               <button
                 onClick={() => setActiveTab('admin-subscriptions')}
-                className={`px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   activeTab === 'admin-subscriptions'
-                    ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-[#EEF2FF] text-[#4F46E5] border border-[#C7D2FE] font-semibold shadow-2xs'
+                    : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
                 }`}
               >
                 🔄 All Subscriptions ({subscriptions.length})
               </button>
               <button
                 onClick={() => setActiveTab('admin-invoices')}
-                className={`px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   activeTab === 'admin-invoices'
-                    ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-[#EEF2FF] text-[#4F46E5] border border-[#C7D2FE] font-semibold shadow-2xs'
+                    : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
                 }`}
               >
                 🧾 Invoices & Billing ({invoices.length})
               </button>
               <button
                 onClick={() => setActiveTab('admin-payments')}
-                className={`px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   activeTab === 'admin-payments'
-                    ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-[#EEF2FF] text-[#4F46E5] border border-[#C7D2FE] font-semibold shadow-2xs'
+                    : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
                 }`}
               >
                 💳 Payments Ledger
               </button>
               <button
                 onClick={() => setActiveTab('staff-customers')}
-                className={`px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   activeTab === 'staff-customers'
-                    ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-[#EEF2FF] text-[#4F46E5] border border-[#C7D2FE] font-semibold shadow-2xs'
+                    : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
                 }`}
               >
                 👥 Customers ({customers.length})
               </button>
               <button
                 onClick={() => setActiveTab('staff-quotes')}
-                className={`px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   activeTab === 'staff-quotes'
-                    ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-[#EEF2FF] text-[#4F46E5] border border-[#C7D2FE] font-semibold shadow-2xs'
+                    : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
                 }`}
               >
                 📑 Quotations ({quotations.length})
               </button>
               <button
                 onClick={() => setActiveTab('admin-products')}
-                className={`px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   activeTab === 'admin-products'
-                    ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-[#EEF2FF] text-[#4F46E5] border border-[#C7D2FE] font-semibold shadow-2xs'
+                    : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
                 }`}
               >
                 ⚙️ Products & Variants
               </button>
               <button
                 onClick={() => setActiveTab('admin-plans')}
-                className={`px-3 py-2 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-medium transition-all whitespace-nowrap cursor-pointer ${
                   activeTab === 'admin-plans'
-                    ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-[#EEF2FF] text-[#4F46E5] border border-[#C7D2FE] font-semibold shadow-2xs'
+                    : 'text-[#64748B] hover:text-[#0F172A] hover:bg-[#F1F5F9]'
                 }`}
               >
                 📐 Plans Configuration
@@ -501,18 +499,18 @@ export default function SubscriptionManagementSystem() {
       </nav>
 
       {/* Main Dynamic Workspace Area */}
-      <main className="max-w-7xl mx-auto px-6 py-8 w-full flex-1 space-y-8">
+      <main className="max-w-7xl mx-auto px-6 py-8 w-full flex-1 space-y-8 bg-[#FFFFFF]">
         {/* ========================================================================= */}
         {/* VIEW 1: SUBSCRIPTION MODELS & PRICING TIERS (CLIENT VIEW)                  */}
         {/* ========================================================================= */}
         {activeTab === 'models' && (
           <section className="space-y-8">
             <div className="text-center max-w-2xl mx-auto space-y-3">
-              <Badge variant="info">Enterprise Subscription Tiers</Badge>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-300">
+              <Badge variant="brand">Enterprise Subscription Tiers</Badge>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
                 Choose the Ideal Subscription Model
               </h2>
-              <p className="text-slate-400 text-sm">
+              <p className="text-[#64748B] text-sm">
                 Transparent recurring plans with zero hidden fees. Built for scalable enterprise growth.
               </p>
             </div>
@@ -523,50 +521,50 @@ export default function SubscriptionManagementSystem() {
                   key={plan.id}
                   className={`flex flex-col justify-between border ${
                     plan.billingFrequency === 'YEARLY'
-                      ? 'border-indigo-500/40 bg-gradient-to-b from-indigo-950/20 to-slate-900/60'
-                      : 'border-white/10'
+                      ? 'border-[#4F46E5] ring-2 ring-[#EEF2FF] shadow-md'
+                      : 'border-[#E2E8F0]'
                   }`}
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono uppercase text-indigo-400 font-semibold">
+                      <span className="text-xs font-mono uppercase text-[#4F46E5] font-semibold">
                         {plan.code}
                       </span>
                       {plan.billingFrequency === 'YEARLY' && (
-                        <Badge variant="warning">Best Value Annual</Badge>
+                        <Badge variant="paused">Best Value Annual</Badge>
                       )}
                     </div>
 
-                    <h3 className="text-xl font-bold text-white">{plan.name}</h3>
+                    <h3 className="text-xl font-bold text-[#0F172A]">{plan.name}</h3>
 
                     <div className="flex items-baseline gap-1">
-                      <span className="text-3xl sm:text-4xl font-extrabold text-white">
+                      <span className="text-3xl sm:text-4xl font-extrabold text-[#0F172A]">
                         {formatINR(plan.price)}
                       </span>
-                      <span className="text-xs text-slate-400 lowercase">
+                      <span className="text-xs text-[#64748B] lowercase">
                         / {plan.billingFrequency}
                       </span>
                     </div>
 
-                    <p className="text-xs text-slate-400">
-                      Product: <strong className="text-slate-200">{plan.product?.name}</strong>
+                    <p className="text-xs text-[#64748B]">
+                      Product: <strong className="text-[#0F172A] font-semibold">{plan.product?.name}</strong>
                     </p>
 
-                    <div className="border-t border-white/5 pt-4 space-y-2.5 text-xs text-slate-300">
+                    <div className="border-t border-[#E2E8F0] pt-4 space-y-2.5 text-xs text-[#334155]">
                       <div className="flex items-center gap-2">
-                        <span className="text-emerald-400">✓</span>
+                        <span className="text-[#059669] font-bold">✓</span>
                         <span>Billing Cadence: {plan.billingFrequency} recurring</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-emerald-400">✓</span>
+                        <span className="text-[#059669] font-bold">✓</span>
                         <span>Pause permitted: {plan.isPauseAllowed ? 'Yes (Flexible)' : 'No'}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-emerald-400">✓</span>
+                        <span className="text-[#059669] font-bold">✓</span>
                         <span>Renewal guaranteed: {plan.isRenewalAllowed ? 'Yes' : 'No'}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-emerald-400">✓</span>
+                        <span className="text-[#059669] font-bold">✓</span>
                         <span>Min Commitment: {plan.minimumQuantity} license</span>
                       </div>
                     </div>
@@ -576,7 +574,7 @@ export default function SubscriptionManagementSystem() {
                     <button
                       onClick={() => handleClientSubscribe(plan.id)}
                       disabled={loading}
-                      className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-semibold text-xs tracking-wide uppercase transition-all shadow-lg shadow-indigo-500/25 cursor-pointer disabled:opacity-50"
+                      className="w-full py-3 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold text-xs tracking-wide uppercase transition-all shadow-sm cursor-pointer disabled:opacity-50"
                     >
                       Subscribe To This Plan
                     </button>
@@ -586,23 +584,23 @@ export default function SubscriptionManagementSystem() {
             </div>
 
             {/* Catalog Products & Variants Overview */}
-            <div className="glass-panel rounded-2xl p-6 border border-white/10 space-y-4">
-              <h3 className="text-lg font-bold text-white">Configurable Product Add-ons & Variants</h3>
+            <div className="bg-[#F8FAFC] rounded-2xl p-6 border border-[#E2E8F0] space-y-4">
+              <h3 className="text-lg font-bold text-[#0F172A]">Configurable Product Add-ons & Variants</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {products.map((p) => (
-                  <div key={p.id} className="p-4 rounded-xl bg-slate-900/60 border border-white/5 space-y-2">
+                  <div key={p.id} className="p-4 rounded-xl bg-white border border-[#E2E8F0] shadow-2xs space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="font-semibold text-white text-sm">{p.name}</span>
-                      <span className="text-xs text-emerald-400 font-mono">{formatINR(p.salesPrice)}</span>
+                      <span className="font-semibold text-[#0F172A] text-sm">{p.name}</span>
+                      <span className="text-xs text-[#059669] font-mono font-bold">{formatINR(p.salesPrice)}</span>
                     </div>
-                    <p className="text-xs text-slate-400">{p.description || 'Enterprise catalog module'}</p>
+                    <p className="text-xs text-[#64748B]">{p.description || 'Enterprise catalog module'}</p>
                     {p.variants && p.variants.length > 0 && (
-                      <div className="pt-2 text-[11px] text-slate-400 border-t border-white/5 space-y-1">
-                        <span className="text-indigo-400 font-medium">Available Add-ons:</span>
+                      <div className="pt-2 text-[11px] text-[#64748B] border-t border-[#E2E8F0] space-y-1">
+                        <span className="text-[#4F46E5] font-semibold">Available Add-ons:</span>
                         {p.variants.map((v: any) => (
                           <div key={v.id} className="flex justify-between">
                             <span>+ {v.name}</span>
-                            <span className="text-slate-300">+{formatINR(v.additionalPrice)}</span>
+                            <span className="text-[#0F172A] font-medium font-mono">+{formatINR(v.additionalPrice)}</span>
                           </div>
                         ))}
                       </div>
@@ -621,13 +619,13 @@ export default function SubscriptionManagementSystem() {
           <section className="space-y-8">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-bold text-white tracking-tight">Financial & Recurring Analytics</h2>
-                <p className="text-xs text-slate-400">Live transaction metrics, collected revenue, and outstanding balance summary</p>
+                <h2 className="text-2xl font-bold text-[#0F172A] tracking-tight">Financial & Recurring Analytics</h2>
+                <p className="text-xs text-[#64748B]">Live transaction metrics, collected revenue, and outstanding balance summary</p>
               </div>
               <button
                 onClick={handleTriggerBilling}
                 disabled={loading}
-                className="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-medium text-xs transition-all shadow-lg shadow-purple-500/25 flex items-center gap-2 cursor-pointer disabled:opacity-50"
+                className="px-4 py-2.5 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold text-xs transition-all shadow-sm flex items-center gap-2 cursor-pointer disabled:opacity-50"
               >
                 ⚡ Trigger Recurring Billing Engine
               </button>
@@ -636,68 +634,68 @@ export default function SubscriptionManagementSystem() {
             {/* KPI Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               <Card>
-                <span className="text-xs text-slate-400 font-medium">Active Subscriptions</span>
-                <p className="text-3xl font-extrabold text-white mt-2">
+                <span className="text-xs text-[#64748B] font-medium">Active Subscriptions</span>
+                <p className="text-3xl font-extrabold text-[#0F172A] mt-2">
                   {overview?.kpis?.activeSubscriptions ?? subscriptions.filter(s => s.status === 'ACTIVE').length}
                 </p>
-                <span className="text-[11px] text-emerald-400 mt-1 inline-block">● Auto-renewing recurring contracts</span>
+                <span className="text-[11px] text-[#059669] font-medium mt-1 inline-block">● Auto-renewing recurring contracts</span>
               </Card>
 
               <Card>
-                <span className="text-xs text-slate-400 font-medium">Total Revenue Collected</span>
-                <p className="text-3xl font-extrabold text-emerald-400 mt-2">
+                <span className="text-xs text-[#64748B] font-medium">Total Revenue Collected</span>
+                <p className="text-3xl font-extrabold text-[#059669] mt-2">
                   {formatINR(overview?.kpis?.totalRevenueCollected ?? 0)}
                 </p>
-                <span className="text-[11px] text-slate-400 mt-1 inline-block">Realized cash flow</span>
+                <span className="text-[11px] text-[#64748B] mt-1 inline-block">Realized cash flow</span>
               </Card>
 
               <Card>
-                <span className="text-xs text-slate-400 font-medium">Total Outstanding Balance</span>
-                <p className="text-3xl font-extrabold text-amber-400 mt-2">
+                <span className="text-xs text-[#64748B] font-medium">Total Outstanding Balance</span>
+                <p className="text-3xl font-extrabold text-[#D97706] mt-2">
                   {formatINR(overview?.kpis?.totalOutstanding ?? 0)}
                 </p>
-                <span className="text-[11px] text-slate-400 mt-1 inline-block">Pending invoice settlements</span>
+                <span className="text-[11px] text-[#64748B] mt-1 inline-block">Pending invoice settlements</span>
               </Card>
 
               <Card>
-                <span className="text-xs text-slate-400 font-medium">Overdue Invoices</span>
-                <p className="text-3xl font-extrabold text-rose-400 mt-2">
+                <span className="text-xs text-[#64748B] font-medium">Overdue Invoices</span>
+                <p className="text-3xl font-extrabold text-[#DC2626] mt-2">
                   {overview?.kpis?.overdueCount ?? 0}
                 </p>
-                <span className="text-[11px] text-rose-400/80 mt-1 inline-block">
+                <span className="text-[11px] text-[#DC2626] font-medium mt-1 inline-block">
                   Amount: {formatINR(overview?.kpis?.overdueAmount ?? 0)}
                 </span>
               </Card>
             </div>
 
             {/* Active Subscriptions Quick Table */}
-            <div className="glass-panel rounded-2xl p-6 border border-white/10 space-y-4">
-              <h3 className="text-base font-bold text-white">Recent Active Subscriptions</h3>
+            <div className="bg-white rounded-2xl p-6 border border-[#E2E8F0] shadow-xs space-y-4">
+              <h3 className="text-base font-bold text-[#0F172A]">Recent Active Subscriptions</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
-                  <thead className="border-b border-white/10 text-slate-400 font-medium uppercase text-[10px]">
+                  <thead className="border-b border-[#E2E8F0] bg-[#F8FAFC] text-[#64748B] font-semibold uppercase text-[10px]">
                     <tr>
-                      <th className="py-2.5">Subscription #</th>
-                      <th className="py-2.5">Customer</th>
-                      <th className="py-2.5">Plan</th>
-                      <th className="py-2.5">Total Amount</th>
-                      <th className="py-2.5">Status</th>
-                      <th className="py-2.5">Next Billing</th>
+                      <th className="py-2.5 px-3">Subscription #</th>
+                      <th className="py-2.5 px-3">Customer</th>
+                      <th className="py-2.5 px-3">Plan</th>
+                      <th className="py-2.5 px-3">Total Amount</th>
+                      <th className="py-2.5 px-3">Status</th>
+                      <th className="py-2.5 px-3">Next Billing</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/5">
+                  <tbody className="divide-y divide-[#E2E8F0]">
                     {subscriptions.slice(0, 5).map((s) => (
-                      <tr key={s.id} className="hover:bg-white/[0.02]">
-                        <td className="py-3 font-mono font-medium text-indigo-300">{s.subscriptionNumber}</td>
-                        <td className="py-3 text-white">{s.customer?.companyName || s.customer?.contactName}</td>
-                        <td className="py-3 text-slate-300">{s.plan?.name}</td>
-                        <td className="py-3 font-mono text-slate-200">{formatINR(s.totalAmount)}</td>
-                        <td className="py-3">
-                          <Badge variant={s.status === 'ACTIVE' ? 'success' : s.status === 'PAUSED' ? 'warning' : 'neutral'}>
+                      <tr key={s.id} className="hover:bg-[#F8FAFC] transition-colors">
+                        <td className="py-3 px-3 font-mono font-medium text-[#4F46E5]">{s.subscriptionNumber}</td>
+                        <td className="py-3 px-3 text-[#0F172A] font-medium">{s.customer?.companyName || s.customer?.contactName}</td>
+                        <td className="py-3 px-3 text-[#334155]">{s.plan?.name}</td>
+                        <td className="py-3 px-3 font-mono font-semibold text-[#0F172A]">{formatINR(s.totalAmount)}</td>
+                        <td className="py-3 px-3">
+                          <Badge variant={s.status === 'ACTIVE' ? 'active' : s.status === 'PAUSED' ? 'paused' : 'neutral'}>
                             {s.status}
                           </Badge>
                         </td>
-                        <td className="py-3 text-slate-400">{s.nextBillingDate ? new Date(s.nextBillingDate).toLocaleDateString() : 'N/A'}</td>
+                        <td className="py-3 px-3 text-[#64748B]">{s.nextBillingDate ? new Date(s.nextBillingDate).toLocaleDateString() : 'N/A'}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -714,40 +712,40 @@ export default function SubscriptionManagementSystem() {
           <section className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-white">Subscription Lifecycle Manager</h2>
-                <p className="text-xs text-slate-400">Admin controls: pause, resume, renew, and terminate subscriptions</p>
+                <h2 className="text-2xl font-bold text-[#0F172A]">Subscription Lifecycle Manager</h2>
+                <p className="text-xs text-[#64748B]">Admin controls: pause, resume, renew, and terminate subscriptions</p>
               </div>
             </div>
 
-            <div className="glass-panel rounded-2xl p-6 border border-white/10 overflow-x-auto">
+            <div className="bg-white rounded-2xl p-6 border border-[#E2E8F0] shadow-xs overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="border-b border-white/10 text-slate-400 font-medium uppercase text-[10px]">
+                <thead className="border-b border-[#E2E8F0] bg-[#F8FAFC] text-[#64748B] font-semibold uppercase text-[10px]">
                   <tr>
-                    <th className="py-3">Subscription</th>
-                    <th className="py-3">Customer</th>
-                    <th className="py-3">Plan & Frequency</th>
-                    <th className="py-3">Amount</th>
-                    <th className="py-3">Status</th>
-                    <th className="py-3 text-right">Lifecycle Actions</th>
+                    <th className="py-3 px-3">Subscription</th>
+                    <th className="py-3 px-3">Customer</th>
+                    <th className="py-3 px-3">Plan & Frequency</th>
+                    <th className="py-3 px-3">Amount</th>
+                    <th className="py-3 px-3">Status</th>
+                    <th className="py-3 px-3 text-right">Lifecycle Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-[#E2E8F0]">
                   {subscriptions.map((s) => (
-                    <tr key={s.id} className="hover:bg-white/[0.02]">
-                      <td className="py-3 font-mono text-indigo-300 font-medium">{s.subscriptionNumber}</td>
-                      <td className="py-3 text-white font-medium">{s.customer?.companyName || s.customer?.contactName}</td>
-                      <td className="py-3 text-slate-300">{s.plan?.name} ({s.plan?.billingFrequency})</td>
-                      <td className="py-3 font-mono">{formatINR(s.totalAmount)}</td>
-                      <td className="py-3">
-                        <Badge variant={s.status === 'ACTIVE' ? 'success' : s.status === 'PAUSED' ? 'warning' : 'neutral'}>
+                    <tr key={s.id} className="hover:bg-[#F8FAFC] transition-colors">
+                      <td className="py-3 px-3 font-mono text-[#4F46E5] font-semibold">{s.subscriptionNumber}</td>
+                      <td className="py-3 px-3 text-[#0F172A] font-medium">{s.customer?.companyName || s.customer?.contactName}</td>
+                      <td className="py-3 px-3 text-[#334155]">{s.plan?.name} ({s.plan?.billingFrequency})</td>
+                      <td className="py-3 px-3 font-mono font-semibold text-[#0F172A]">{formatINR(s.totalAmount)}</td>
+                      <td className="py-3 px-3">
+                        <Badge variant={s.status === 'ACTIVE' ? 'active' : s.status === 'PAUSED' ? 'paused' : 'neutral'}>
                           {s.status}
                         </Badge>
                       </td>
-                      <td className="py-3 text-right space-x-1.5">
+                      <td className="py-3 px-3 text-right space-x-1.5">
                         {s.status === 'ACTIVE' && (
                           <button
                             onClick={() => handleSubAction(s.id, 'pause')}
-                            className="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 font-medium cursor-pointer"
+                            className="px-2.5 py-1 rounded-md bg-[#FEF3C7] text-[#D97706] hover:bg-[#FDE68A] border border-[#FDE68A] font-semibold cursor-pointer text-xs"
                           >
                             Pause
                           </button>
@@ -755,7 +753,7 @@ export default function SubscriptionManagementSystem() {
                         {s.status === 'PAUSED' && (
                           <button
                             onClick={() => handleSubAction(s.id, 'resume')}
-                            className="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 font-medium cursor-pointer"
+                            className="px-2.5 py-1 rounded-md bg-[#ECFDF5] text-[#059669] hover:bg-[#A7F3D0] border border-[#A7F3D0] font-semibold cursor-pointer text-xs"
                           >
                             Resume
                           </button>
@@ -764,13 +762,13 @@ export default function SubscriptionManagementSystem() {
                           <>
                             <button
                               onClick={() => handleSubAction(s.id, 'renew')}
-                              className="px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 font-medium cursor-pointer"
+                              className="px-2.5 py-1 rounded-md bg-[#EEF2FF] text-[#4F46E5] hover:bg-[#E0E7FF] border border-[#C7D2FE] font-semibold cursor-pointer text-xs"
                             >
                               Renew +1Y
                             </button>
                             <button
                               onClick={() => handleSubAction(s.id, 'close')}
-                              className="px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 font-medium cursor-pointer"
+                              className="px-2.5 py-1 rounded-md bg-[#FEE2E2] text-[#DC2626] hover:bg-[#FECACA] border border-[#FECACA] font-semibold cursor-pointer text-xs"
                             >
                               Close
                             </button>
@@ -792,52 +790,52 @@ export default function SubscriptionManagementSystem() {
           <section className="space-y-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-bold text-white">Invoice Center & Settlements</h2>
-                <p className="text-xs text-slate-400">Snapshot invoices, balance tracking, and manual payment allocations</p>
+                <h2 className="text-2xl font-bold text-[#0F172A]">Invoice Center & Settlements</h2>
+                <p className="text-xs text-[#64748B]">Snapshot invoices, balance tracking, and manual payment allocations</p>
               </div>
               <button
                 onClick={handleTriggerBilling}
-                className="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-medium text-xs transition-all flex items-center gap-2 cursor-pointer shadow-lg shadow-purple-500/25"
+                className="px-4 py-2 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold text-xs transition-all flex items-center gap-2 cursor-pointer shadow-sm"
               >
                 ⚡ Run Recurring Billing Engine
               </button>
             </div>
 
-            <div className="glass-panel rounded-2xl p-6 border border-white/10 overflow-x-auto">
+            <div className="bg-white rounded-2xl p-6 border border-[#E2E8F0] shadow-xs overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="border-b border-white/10 text-slate-400 font-medium uppercase text-[10px]">
+                <thead className="border-b border-[#E2E8F0] bg-[#F8FAFC] text-[#64748B] font-semibold uppercase text-[10px]">
                   <tr>
-                    <th className="py-3">Invoice #</th>
-                    <th className="py-3">Customer</th>
-                    <th className="py-3">Total Amount</th>
-                    <th className="py-3">Paid Amount</th>
-                    <th className="py-3">Balance Due</th>
-                    <th className="py-3">Payment Status</th>
-                    <th className="py-3 text-right">Actions</th>
+                    <th className="py-3 px-3">Invoice #</th>
+                    <th className="py-3 px-3">Customer</th>
+                    <th className="py-3 px-3">Total Amount</th>
+                    <th className="py-3 px-3">Paid Amount</th>
+                    <th className="py-3 px-3">Balance Due</th>
+                    <th className="py-3 px-3">Payment Status</th>
+                    <th className="py-3 px-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-[#E2E8F0]">
                   {invoices.map((inv) => (
-                    <tr key={inv.id} className="hover:bg-white/[0.02]">
-                      <td className="py-3 font-mono font-medium text-indigo-300">{inv.invoiceNumber}</td>
-                      <td className="py-3 text-white font-medium">{inv.customer?.companyName || inv.customer?.contactName}</td>
-                      <td className="py-3 font-mono">{formatINR(inv.totalAmount)}</td>
-                      <td className="py-3 font-mono text-emerald-400">{formatINR(inv.paidAmount)}</td>
-                      <td className="py-3 font-mono text-amber-400 font-semibold">{formatINR(inv.outstandingBalance)}</td>
-                      <td className="py-3">
+                    <tr key={inv.id} className="hover:bg-[#F8FAFC] transition-colors">
+                      <td className="py-3 px-3 font-mono font-semibold text-[#4F46E5]">{inv.invoiceNumber}</td>
+                      <td className="py-3 px-3 text-[#0F172A] font-medium">{inv.customer?.companyName || inv.customer?.contactName}</td>
+                      <td className="py-3 px-3 font-mono text-[#0F172A]">{formatINR(inv.totalAmount)}</td>
+                      <td className="py-3 px-3 font-mono text-[#059669] font-medium">{formatINR(inv.paidAmount)}</td>
+                      <td className="py-3 px-3 font-mono text-[#D97706] font-bold">{formatINR(inv.outstandingBalance)}</td>
+                      <td className="py-3 px-3">
                         <Badge
                           variant={
                             inv.paymentStatus === 'PAID'
-                              ? 'success'
+                              ? 'active'
                               : inv.paymentStatus === 'PARTIALLY_PAID'
-                              ? 'warning'
-                              : 'neutral'
+                              ? 'paused'
+                              : 'overdue'
                           }
                         >
                           {inv.paymentStatus}
                         </Badge>
                       </td>
-                      <td className="py-3 text-right">
+                      <td className="py-3 px-3 text-right">
                         {inv.outstandingBalance > 0 && (
                           <button
                             onClick={() => {
@@ -850,7 +848,7 @@ export default function SubscriptionManagementSystem() {
                               });
                               setShowPaymentModal(true);
                             }}
-                            className="px-3 py-1 rounded bg-indigo-600 hover:bg-indigo-500 text-white font-medium cursor-pointer text-xs"
+                            className="px-3 py-1.5 rounded-lg bg-[#4F46E5] hover:bg-[#4338CA] text-white font-medium cursor-pointer text-xs shadow-2xs"
                           >
                             Record Payment
                           </button>
@@ -869,28 +867,28 @@ export default function SubscriptionManagementSystem() {
         {/* ========================================================================= */}
         {activeTab === 'admin-payments' && (
           <section className="space-y-6">
-            <h2 className="text-2xl font-bold text-white">Payment Ledger & Transactions</h2>
-            <div className="glass-panel rounded-2xl p-6 border border-white/10 overflow-x-auto">
+            <h2 className="text-2xl font-bold text-[#0F172A]">Payment Ledger & Transactions</h2>
+            <div className="bg-white rounded-2xl p-6 border border-[#E2E8F0] shadow-xs overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="border-b border-white/10 text-slate-400 font-medium uppercase text-[10px]">
+                <thead className="border-b border-[#E2E8F0] bg-[#F8FAFC] text-[#64748B] font-semibold uppercase text-[10px]">
                   <tr>
-                    <th className="py-3">Payment #</th>
-                    <th className="py-3">Invoice Ref</th>
-                    <th className="py-3">Amount</th>
-                    <th className="py-3">Method</th>
-                    <th className="py-3">Reference / UTR</th>
-                    <th className="py-3">Date</th>
+                    <th className="py-3 px-3">Payment #</th>
+                    <th className="py-3 px-3">Invoice Ref</th>
+                    <th className="py-3 px-3">Amount</th>
+                    <th className="py-3 px-3">Method</th>
+                    <th className="py-3 px-3">Reference / UTR</th>
+                    <th className="py-3 px-3">Date</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-[#E2E8F0]">
                   {payments.map((p) => (
-                    <tr key={p.id} className="hover:bg-white/[0.02]">
-                      <td className="py-3 font-mono font-medium text-emerald-400">{p.paymentNumber}</td>
-                      <td className="py-3 font-mono text-indigo-300">{p.invoice?.invoiceNumber}</td>
-                      <td className="py-3 font-mono font-bold text-white">{formatINR(p.amount)}</td>
-                      <td className="py-3 uppercase text-[11px] text-slate-300">{p.paymentMethod}</td>
-                      <td className="py-3 text-slate-400">{p.referenceNote || 'N/A'}</td>
-                      <td className="py-3 text-slate-400">{new Date(p.paymentDate).toLocaleDateString()}</td>
+                    <tr key={p.id} className="hover:bg-[#F8FAFC] transition-colors">
+                      <td className="py-3 px-3 font-mono font-semibold text-[#059669]">{p.paymentNumber}</td>
+                      <td className="py-3 px-3 font-mono text-[#4F46E5]">{p.invoice?.invoiceNumber}</td>
+                      <td className="py-3 px-3 font-mono font-bold text-[#0F172A]">{formatINR(p.amount)}</td>
+                      <td className="py-3 px-3 uppercase text-[11px] text-[#334155]">{p.paymentMethod}</td>
+                      <td className="py-3 px-3 text-[#64748B]">{p.referenceNote || 'N/A'}</td>
+                      <td className="py-3 px-3 text-[#64748B]">{new Date(p.paymentDate).toLocaleDateString()}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -906,12 +904,12 @@ export default function SubscriptionManagementSystem() {
           <section className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-white">Product Catalog & Variant Add-ons</h2>
-                <p className="text-xs text-slate-400">Configure base products, pricing, and variant modifiers</p>
+                <h2 className="text-2xl font-bold text-[#0F172A]">Product Catalog & Variant Add-ons</h2>
+                <p className="text-xs text-[#64748B]">Configure base products, pricing, and variant modifiers</p>
               </div>
               <button
                 onClick={() => setShowProductModal(true)}
-                className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold text-xs transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
               >
                 + Add New Product
               </button>
@@ -919,37 +917,37 @@ export default function SubscriptionManagementSystem() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {products.map((p) => (
-                <Card key={p.id} className="border border-white/10 space-y-4">
+                <Card key={p.id} className="border border-[#E2E8F0] space-y-4">
                   <div className="flex items-start justify-between">
                     <div>
-                      <span className="text-xs font-mono uppercase text-indigo-400 font-semibold">{p.sku}</span>
-                      <h3 className="text-lg font-bold text-white mt-1">{p.name}</h3>
+                      <span className="text-xs font-mono uppercase text-[#4F46E5] font-semibold">{p.sku}</span>
+                      <h3 className="text-lg font-bold text-[#0F172A] mt-1">{p.name}</h3>
                     </div>
-                    <Badge variant="success">{p.productType}</Badge>
+                    <Badge variant="active">{p.productType}</Badge>
                   </div>
 
-                  <p className="text-xs text-slate-400">{p.description}</p>
+                  <p className="text-xs text-[#64748B]">{p.description}</p>
 
-                  <div className="flex justify-between items-center bg-slate-900/60 p-3 rounded-xl border border-white/5 font-mono text-xs">
+                  <div className="flex justify-between items-center bg-[#F8FAFC] p-3 rounded-xl border border-[#E2E8F0] font-mono text-xs">
                     <div>
-                      <span className="text-slate-400">Sales Price:</span>{' '}
-                      <strong className="text-emerald-400">{formatINR(p.salesPrice)}</strong>
+                      <span className="text-[#64748B]">Sales Price:</span>{' '}
+                      <strong className="text-[#059669]">{formatINR(p.salesPrice)}</strong>
                     </div>
                     <div>
-                      <span className="text-slate-400">Cost:</span>{' '}
-                      <span className="text-slate-300">{formatINR(p.costPrice)}</span>
+                      <span className="text-[#64748B]">Cost:</span>{' '}
+                      <span className="text-[#334155]">{formatINR(p.costPrice)}</span>
                     </div>
                   </div>
 
                   {p.variants && p.variants.length > 0 && (
-                    <div className="pt-2 text-xs space-y-1.5 border-t border-white/5">
-                      <span className="font-semibold text-slate-300 text-[11px] uppercase tracking-wider">
+                    <div className="pt-2 text-xs space-y-1.5 border-t border-[#E2E8F0]">
+                      <span className="font-semibold text-[#0F172A] text-[11px] uppercase tracking-wider">
                         Variant Modifiers:
                       </span>
                       {p.variants.map((v: any) => (
-                        <div key={v.id} className="flex justify-between text-slate-400 text-xs py-1">
+                        <div key={v.id} className="flex justify-between text-[#64748B] text-xs py-1">
                           <span>{v.name}</span>
-                          <span className="font-mono text-indigo-300">+{formatINR(v.additionalPrice)}</span>
+                          <span className="font-mono text-[#4F46E5] font-semibold">+{formatINR(v.additionalPrice)}</span>
                         </div>
                       ))}
                     </div>
@@ -967,41 +965,41 @@ export default function SubscriptionManagementSystem() {
           <section className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-white">Subscription Plans Configuration</h2>
-                <p className="text-xs text-slate-400">Configure recurring cadences, pricing tiers, and renewal rules</p>
+                <h2 className="text-2xl font-bold text-[#0F172A]">Subscription Plans Configuration</h2>
+                <p className="text-xs text-[#64748B]">Configure recurring cadences, pricing tiers, and renewal rules</p>
               </div>
               <button
                 onClick={() => {
                   if (products.length > 0) setPlanForm({ ...planForm, productId: products[0].id });
                   setShowPlanModal(true);
                 }}
-                className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold text-xs transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
               >
                 + Create New Plan
               </button>
             </div>
 
-            <div className="glass-panel rounded-2xl p-6 border border-white/10 overflow-x-auto">
+            <div className="bg-white rounded-2xl p-6 border border-[#E2E8F0] shadow-xs overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="border-b border-white/10 text-slate-400 font-medium uppercase text-[10px]">
+                <thead className="border-b border-[#E2E8F0] bg-[#F8FAFC] text-[#64748B] font-semibold uppercase text-[10px]">
                   <tr>
-                    <th className="py-3">Code</th>
-                    <th className="py-3">Plan Name</th>
-                    <th className="py-3">Frequency</th>
-                    <th className="py-3">Recurring Price</th>
-                    <th className="py-3">Pause Allowed</th>
-                    <th className="py-3">Renewal Allowed</th>
+                    <th className="py-3 px-3">Code</th>
+                    <th className="py-3 px-3">Plan Name</th>
+                    <th className="py-3 px-3">Frequency</th>
+                    <th className="py-3 px-3">Recurring Price</th>
+                    <th className="py-3 px-3">Pause Allowed</th>
+                    <th className="py-3 px-3">Renewal Allowed</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-[#E2E8F0]">
                   {plans.map((pl) => (
-                    <tr key={pl.id} className="hover:bg-white/[0.02]">
-                      <td className="py-3 font-mono font-medium text-indigo-300">{pl.code}</td>
-                      <td className="py-3 font-medium text-white">{pl.name}</td>
-                      <td className="py-3 uppercase text-[11px] text-slate-300">{pl.billingFrequency}</td>
-                      <td className="py-3 font-mono font-bold text-emerald-400">{formatINR(pl.price)}</td>
-                      <td className="py-3">{pl.isPauseAllowed ? '✅ Yes' : '❌ No'}</td>
-                      <td className="py-3">{pl.isRenewalAllowed ? '✅ Yes' : '❌ No'}</td>
+                    <tr key={pl.id} className="hover:bg-[#F8FAFC] transition-colors">
+                      <td className="py-3 px-3 font-mono font-semibold text-[#4F46E5]">{pl.code}</td>
+                      <td className="py-3 px-3 font-semibold text-[#0F172A]">{pl.name}</td>
+                      <td className="py-3 px-3 uppercase text-[11px] text-[#334155]">{pl.billingFrequency}</td>
+                      <td className="py-3 px-3 font-mono font-bold text-[#059669]">{formatINR(pl.price)}</td>
+                      <td className="py-3 px-3">{pl.isPauseAllowed ? '✅ Yes' : '❌ No'}</td>
+                      <td className="py-3 px-3">{pl.isRenewalAllowed ? '✅ Yes' : '❌ No'}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -1017,39 +1015,39 @@ export default function SubscriptionManagementSystem() {
           <section className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-white">Customer Account Directory</h2>
-                <p className="text-xs text-slate-400">Onboard customer accounts and manage billing profiles</p>
+                <h2 className="text-2xl font-bold text-[#0F172A]">Customer Account Directory</h2>
+                <p className="text-xs text-[#64748B]">Onboard customer accounts and manage billing profiles</p>
               </div>
               <button
                 onClick={() => setShowCustomerModal(true)}
-                className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold text-xs transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
               >
                 + Onboard New Customer
               </button>
             </div>
 
-            <div className="glass-panel rounded-2xl p-6 border border-white/10 overflow-x-auto">
+            <div className="bg-white rounded-2xl p-6 border border-[#E2E8F0] shadow-xs overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="border-b border-white/10 text-slate-400 font-medium uppercase text-[10px]">
+                <thead className="border-b border-[#E2E8F0] bg-[#F8FAFC] text-[#64748B] font-semibold uppercase text-[10px]">
                   <tr>
-                    <th className="py-3">Customer ID</th>
-                    <th className="py-3">Company Name</th>
-                    <th className="py-3">Contact</th>
-                    <th className="py-3">Email</th>
-                    <th className="py-3">City / Country</th>
-                    <th className="py-3">Subscriptions</th>
+                    <th className="py-3 px-3">Customer ID</th>
+                    <th className="py-3 px-3">Company Name</th>
+                    <th className="py-3 px-3">Contact</th>
+                    <th className="py-3 px-3">Email</th>
+                    <th className="py-3 px-3">City / Country</th>
+                    <th className="py-3 px-3">Subscriptions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-[#E2E8F0]">
                   {customers.map((c) => (
-                    <tr key={c.id} className="hover:bg-white/[0.02]">
-                      <td className="py-3 font-mono text-indigo-300 font-medium">{c.customerNumber}</td>
-                      <td className="py-3 font-semibold text-white">{c.companyName || 'Individual'}</td>
-                      <td className="py-3 text-slate-300">{c.contactName}</td>
-                      <td className="py-3 text-slate-400">{c.email}</td>
-                      <td className="py-3 text-slate-400">{c.city}, {c.country}</td>
-                      <td className="py-3">
-                        <Badge variant="info">{c.subscriptions?.length || 0} active</Badge>
+                    <tr key={c.id} className="hover:bg-[#F8FAFC] transition-colors">
+                      <td className="py-3 px-3 font-mono text-[#4F46E5] font-semibold">{c.customerNumber}</td>
+                      <td className="py-3 px-3 font-semibold text-[#0F172A]">{c.companyName || 'Individual'}</td>
+                      <td className="py-3 px-3 text-[#334155]">{c.contactName}</td>
+                      <td className="py-3 px-3 text-[#64748B]">{c.email}</td>
+                      <td className="py-3 px-3 text-[#64748B]">{c.city}, {c.country}</td>
+                      <td className="py-3 px-3">
+                        <Badge variant="brand">{c.subscriptions?.length || 0} active</Badge>
                       </td>
                     </tr>
                   ))}
@@ -1066,8 +1064,8 @@ export default function SubscriptionManagementSystem() {
           <section className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-white">Commercial Quotations</h2>
-                <p className="text-xs text-slate-400">Prepare quotes from templates and convert to active subscriptions</p>
+                <h2 className="text-2xl font-bold text-[#0F172A]">Commercial Quotations</h2>
+                <p className="text-xs text-[#64748B]">Prepare quotes from templates and convert to active subscriptions</p>
               </div>
               <button
                 onClick={() => {
@@ -1081,39 +1079,39 @@ export default function SubscriptionManagementSystem() {
                   }
                   setShowQuoteModal(true);
                 }}
-                className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold text-xs transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
               >
                 + Prepare Quotation
               </button>
             </div>
 
-            <div className="glass-panel rounded-2xl p-6 border border-white/10 overflow-x-auto">
+            <div className="bg-white rounded-2xl p-6 border border-[#E2E8F0] shadow-xs overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="border-b border-white/10 text-slate-400 font-medium uppercase text-[10px]">
+                <thead className="border-b border-[#E2E8F0] bg-[#F8FAFC] text-[#64748B] font-semibold uppercase text-[10px]">
                   <tr>
-                    <th className="py-3">Quote #</th>
-                    <th className="py-3">Customer</th>
-                    <th className="py-3">Valid Until</th>
-                    <th className="py-3">Total Amount</th>
-                    <th className="py-3">Status</th>
-                    <th className="py-3 text-right">Actions</th>
+                    <th className="py-3 px-3">Quote #</th>
+                    <th className="py-3 px-3">Customer</th>
+                    <th className="py-3 px-3">Valid Until</th>
+                    <th className="py-3 px-3">Total Amount</th>
+                    <th className="py-3 px-3">Status</th>
+                    <th className="py-3 px-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-[#E2E8F0]">
                   {quotations.map((q) => (
-                    <tr key={q.id} className="hover:bg-white/[0.02]">
-                      <td className="py-3 font-mono font-medium text-indigo-300">{q.quotationNumber}</td>
-                      <td className="py-3 font-medium text-white">{q.customer?.companyName || q.customer?.contactName}</td>
-                      <td className="py-3 text-slate-400">{new Date(q.validUntil).toLocaleDateString()}</td>
-                      <td className="py-3 font-mono font-bold text-emerald-400">{formatINR(q.totalAmount)}</td>
-                      <td className="py-3">
-                        <Badge variant={q.status === 'CONVERTED' ? 'success' : 'warning'}>{q.status}</Badge>
+                    <tr key={q.id} className="hover:bg-[#F8FAFC] transition-colors">
+                      <td className="py-3 px-3 font-mono font-semibold text-[#4F46E5]">{q.quotationNumber}</td>
+                      <td className="py-3 px-3 font-semibold text-[#0F172A]">{q.customer?.companyName || q.customer?.contactName}</td>
+                      <td className="py-3 px-3 text-[#64748B]">{new Date(q.validUntil).toLocaleDateString()}</td>
+                      <td className="py-3 px-3 font-mono font-bold text-[#059669]">{formatINR(q.totalAmount)}</td>
+                      <td className="py-3 px-3">
+                        <Badge variant={q.status === 'CONVERTED' ? 'active' : 'paused'}>{q.status}</Badge>
                       </td>
-                      <td className="py-3 text-right">
+                      <td className="py-3 px-3 text-right">
                         {q.status !== 'CONVERTED' && (
                           <button
                             onClick={() => handleConvertQuote(q.id)}
-                            className="px-3 py-1 rounded bg-indigo-600 hover:bg-indigo-500 text-white font-medium cursor-pointer text-xs"
+                            className="px-3 py-1.5 rounded-lg bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold cursor-pointer text-xs shadow-2xs"
                           >
                             Convert to Subscription
                           </button>
@@ -1134,14 +1132,14 @@ export default function SubscriptionManagementSystem() {
           <section className="space-y-8">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
-                <h2 className="text-2xl font-bold text-white">Client Self-Service Portal</h2>
-                <p className="text-xs text-slate-400">
-                  Welcome, <strong className="text-indigo-300">{currentUser?.email || 'Valued Customer'}</strong>. View your active subscriptions and invoices.
+                <h2 className="text-2xl font-bold text-[#0F172A]">Client Self-Service Portal</h2>
+                <p className="text-xs text-[#64748B]">
+                  Welcome, <strong className="text-[#4F46E5] font-semibold">{currentUser?.email || 'Valued Customer'}</strong>. View your active subscriptions and invoices.
                 </p>
               </div>
               <button
                 onClick={() => setActiveTab('models')}
-                className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold text-xs cursor-pointer shadow-sm"
               >
                 + Browse New Subscription Plans
               </button>
@@ -1149,34 +1147,34 @@ export default function SubscriptionManagementSystem() {
 
             {/* My Subscriptions List */}
             <div className="space-y-4">
-              <h3 className="text-base font-bold text-white">My Active Subscriptions</h3>
+              <h3 className="text-base font-bold text-[#0F172A]">My Active Subscriptions</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {subscriptions.map((sub) => (
-                  <Card key={sub.id} className="border border-white/10 space-y-4">
+                  <Card key={sub.id} className="border border-[#E2E8F0] space-y-4">
                     <div className="flex items-start justify-between">
                       <div>
-                        <span className="font-mono text-indigo-400 text-xs font-semibold">{sub.subscriptionNumber}</span>
-                        <h4 className="text-lg font-bold text-white mt-1">{sub.plan?.name}</h4>
+                        <span className="font-mono text-[#4F46E5] text-xs font-semibold">{sub.subscriptionNumber}</span>
+                        <h4 className="text-lg font-bold text-[#0F172A] mt-1">{sub.plan?.name}</h4>
                       </div>
-                      <Badge variant={sub.status === 'ACTIVE' ? 'success' : sub.status === 'PAUSED' ? 'warning' : 'neutral'}>
+                      <Badge variant={sub.status === 'ACTIVE' ? 'active' : sub.status === 'PAUSED' ? 'paused' : 'neutral'}>
                         {sub.status}
                       </Badge>
                     </div>
 
-                    <div className="bg-slate-900/60 p-3 rounded-xl border border-white/5 space-y-1.5 text-xs font-mono">
+                    <div className="bg-[#F8FAFC] p-3 rounded-xl border border-[#E2E8F0] space-y-1.5 text-xs font-mono">
                       <div className="flex justify-between">
-                        <span className="text-slate-400">Total Recurring:</span>
-                        <span className="text-emerald-400 font-bold">{formatINR(sub.totalAmount)}</span>
+                        <span className="text-[#64748B]">Total Recurring:</span>
+                        <span className="text-[#059669] font-bold">{formatINR(sub.totalAmount)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-400">Next Scheduled Invoice:</span>
-                        <span className="text-slate-200">
+                        <span className="text-[#64748B]">Next Scheduled Invoice:</span>
+                        <span className="text-[#0F172A] font-medium">
                           {sub.nextBillingDate ? new Date(sub.nextBillingDate).toLocaleDateString() : 'N/A'}
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-slate-400">Contract End Date:</span>
-                        <span className="text-slate-200">{new Date(sub.expiryDate).toLocaleDateString()}</span>
+                        <span className="text-[#64748B]">Contract End Date:</span>
+                        <span className="text-[#0F172A] font-medium">{new Date(sub.expiryDate).toLocaleDateString()}</span>
                       </div>
                     </div>
 
@@ -1184,7 +1182,7 @@ export default function SubscriptionManagementSystem() {
                       {sub.status === 'ACTIVE' && (
                         <button
                           onClick={() => handleSubAction(sub.id, 'pause')}
-                          className="flex-1 py-2 rounded-lg bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 font-medium text-xs cursor-pointer"
+                          className="flex-1 py-2 rounded-lg bg-[#FEF3C7] text-[#D97706] hover:bg-[#FDE68A] border border-[#FDE68A] font-semibold text-xs cursor-pointer"
                         >
                           Pause Plan
                         </button>
@@ -1192,14 +1190,14 @@ export default function SubscriptionManagementSystem() {
                       {sub.status === 'PAUSED' && (
                         <button
                           onClick={() => handleSubAction(sub.id, 'resume')}
-                          className="flex-1 py-2 rounded-lg bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 font-medium text-xs cursor-pointer"
+                          className="flex-1 py-2 rounded-lg bg-[#ECFDF5] text-[#059669] hover:bg-[#A7F3D0] border border-[#A7F3D0] font-semibold text-xs cursor-pointer"
                         >
                           Resume Plan
                         </button>
                       )}
                       <button
                         onClick={() => handleSubAction(sub.id, 'close')}
-                        className="py-2 px-3 rounded-lg bg-rose-500/20 text-rose-300 hover:bg-rose-500/30 font-medium text-xs cursor-pointer"
+                        className="py-2 px-3 rounded-lg bg-[#FEE2E2] text-[#DC2626] hover:bg-[#FECACA] border border-[#FECACA] font-semibold text-xs cursor-pointer"
                       >
                         Cancel
                       </button>
@@ -1210,36 +1208,36 @@ export default function SubscriptionManagementSystem() {
             </div>
 
             {/* My Invoices Table */}
-            <div className="glass-panel rounded-2xl p-6 border border-white/10 space-y-4">
-              <h3 className="text-base font-bold text-white">My Invoices & Payment Receipts</h3>
+            <div className="bg-white rounded-2xl p-6 border border-[#E2E8F0] shadow-xs space-y-4">
+              <h3 className="text-base font-bold text-[#0F172A]">My Invoices & Payment Receipts</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
-                  <thead className="border-b border-white/10 text-slate-400 font-medium uppercase text-[10px]">
+                  <thead className="border-b border-[#E2E8F0] bg-[#F8FAFC] text-[#64748B] font-semibold uppercase text-[10px]">
                     <tr>
-                      <th className="py-2.5">Invoice #</th>
-                      <th className="py-2.5">Date</th>
-                      <th className="py-2.5">Total Amount</th>
-                      <th className="py-2.5">Paid</th>
-                      <th className="py-2.5">Outstanding Balance</th>
-                      <th className="py-2.5">Status</th>
-                      <th className="py-2.5 text-right">Receipt</th>
+                      <th className="py-2.5 px-3">Invoice #</th>
+                      <th className="py-2.5 px-3">Date</th>
+                      <th className="py-2.5 px-3">Total Amount</th>
+                      <th className="py-2.5 px-3">Paid</th>
+                      <th className="py-2.5 px-3">Outstanding Balance</th>
+                      <th className="py-2.5 px-3">Status</th>
+                      <th className="py-2.5 px-3 text-right">Receipt</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/5">
+                  <tbody className="divide-y divide-[#E2E8F0]">
                     {invoices.map((inv) => (
-                      <tr key={inv.id} className="hover:bg-white/[0.02]">
-                        <td className="py-3 font-mono font-medium text-indigo-300">{inv.invoiceNumber}</td>
-                        <td className="py-3 text-slate-400">{new Date(inv.invoiceDate).toLocaleDateString()}</td>
-                        <td className="py-3 font-mono">{formatINR(inv.totalAmount)}</td>
-                        <td className="py-3 font-mono text-emerald-400">{formatINR(inv.paidAmount)}</td>
-                        <td className="py-3 font-mono font-bold text-amber-400">{formatINR(inv.outstandingBalance)}</td>
-                        <td className="py-3">
-                          <Badge variant={inv.paymentStatus === 'PAID' ? 'success' : 'warning'}>
+                      <tr key={inv.id} className="hover:bg-[#F8FAFC] transition-colors">
+                        <td className="py-3 px-3 font-mono font-semibold text-[#4F46E5]">{inv.invoiceNumber}</td>
+                        <td className="py-3 px-3 text-[#64748B]">{new Date(inv.invoiceDate).toLocaleDateString()}</td>
+                        <td className="py-3 px-3 font-mono text-[#0F172A]">{formatINR(inv.totalAmount)}</td>
+                        <td className="py-3 px-3 font-mono text-[#059669] font-medium">{formatINR(inv.paidAmount)}</td>
+                        <td className="py-3 px-3 font-mono font-bold text-[#D97706]">{formatINR(inv.outstandingBalance)}</td>
+                        <td className="py-3 px-3">
+                          <Badge variant={inv.paymentStatus === 'PAID' ? 'active' : 'paused'}>
                             {inv.paymentStatus}
                           </Badge>
                         </td>
-                        <td className="py-3 text-right">
-                          <span className="text-indigo-400 hover:underline cursor-pointer">
+                        <td className="py-3 px-3 text-right">
+                          <span className="text-[#4F46E5] font-semibold hover:underline cursor-pointer">
                             Download Receipt ↗
                           </span>
                         </td>
@@ -1257,44 +1255,44 @@ export default function SubscriptionManagementSystem() {
       {/* MODAL: RECORD MANUAL PAYMENT                                               */}
       {/* ========================================================================= */}
       {showPaymentModal && selectedInvoice && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="glass-panel w-full max-w-md rounded-2xl p-6 border border-white/10 space-y-4">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <h3 className="font-bold text-white text-base">Record Payment for {selectedInvoice.invoiceNumber}</h3>
-              <button onClick={() => setShowPaymentModal(false)} className="text-slate-400 hover:text-white cursor-pointer">
+        <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-md rounded-2xl p-6 border border-[#E2E8F0] shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+              <h3 className="font-bold text-[#0F172A] text-base">Record Payment for {selectedInvoice.invoiceNumber}</h3>
+              <button onClick={() => setShowPaymentModal(false)} className="text-[#64748B] hover:text-[#0F172A] font-bold cursor-pointer">
                 ✕
               </button>
             </div>
 
             <form onSubmit={handleRecordPayment} className="space-y-4 text-xs">
               <div>
-                <label className="text-slate-400 block mb-1">Outstanding Balance</label>
+                <label className="text-[#334155] font-medium block mb-1">Outstanding Balance</label>
                 <input
                   type="text"
                   disabled
                   value={formatINR(selectedInvoice.outstandingBalance)}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2.5 text-amber-400 font-mono font-bold"
+                  className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5 text-[#D97706] font-mono font-bold"
                 />
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Payment Amount (INR ₹)</label>
+                <label className="text-[#334155] font-medium block mb-1">Payment Amount (INR ₹)</label>
                 <input
                   type="number"
                   step="0.01"
                   required
                   value={paymentForm.amount}
                   onChange={(e) => setPaymentForm({ ...paymentForm, amount: parseFloat(e.target.value) || 0 })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2.5 text-white font-mono"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2.5 text-[#0F172A] font-mono focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Payment Method</label>
+                <label className="text-[#334155] font-medium block mb-1">Payment Method</label>
                 <select
                   value={paymentForm.paymentMethod}
                   onChange={(e) => setPaymentForm({ ...paymentForm, paymentMethod: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2.5 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2.5 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 >
                   <option value="BANK_TRANSFER">Bank Transfer (NEFT / RTGS)</option>
                   <option value="CREDIT_CARD_MANUAL">Credit Card Manual Entry</option>
@@ -1305,13 +1303,13 @@ export default function SubscriptionManagementSystem() {
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Reference / UTR Number</label>
+                <label className="text-[#334155] font-medium block mb-1">Reference / UTR Number</label>
                 <input
                   type="text"
                   placeholder="e.g. UTR-98237498"
                   value={paymentForm.referenceNote}
                   onChange={(e) => setPaymentForm({ ...paymentForm, referenceNote: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2.5 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2.5 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 />
               </div>
 
@@ -1319,14 +1317,14 @@ export default function SubscriptionManagementSystem() {
                 <button
                   type="button"
                   onClick={() => setShowPaymentModal(false)}
-                  className="flex-1 py-2.5 rounded-xl bg-slate-800 text-slate-300 font-medium cursor-pointer"
+                  className="flex-1 py-2.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0] font-medium cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium cursor-pointer shadow-lg shadow-indigo-500/25"
+                  className="flex-1 py-2.5 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold cursor-pointer shadow-sm"
                 >
                   Confirm & Settle
                 </button>
@@ -1340,72 +1338,72 @@ export default function SubscriptionManagementSystem() {
       {/* MODAL: CREATE PRODUCT (ADMIN CAN UPDATE EVERYTHING)                        */}
       {/* ========================================================================= */}
       {showProductModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="glass-panel w-full max-w-md rounded-2xl p-6 border border-white/10 space-y-4">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <h3 className="font-bold text-white text-base">Add Product to Catalog</h3>
-              <button onClick={() => setShowProductModal(false)} className="text-slate-400 hover:text-white cursor-pointer">
+        <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-md rounded-2xl p-6 border border-[#E2E8F0] shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+              <h3 className="font-bold text-[#0F172A] text-base">Add Product to Catalog</h3>
+              <button onClick={() => setShowProductModal(false)} className="text-[#64748B] hover:text-[#0F172A] font-bold cursor-pointer">
                 ✕
               </button>
             </div>
 
             <form onSubmit={handleCreateProduct} className="space-y-3.5 text-xs">
               <div>
-                <label className="text-slate-400 block mb-1">Product Name</label>
+                <label className="text-[#334155] font-medium block mb-1">Product Name</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. Cloud ERP Suite"
                   value={productForm.name}
                   onChange={(e) => setProductForm({ ...productForm, name: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">SKU Code</label>
+                <label className="text-[#334155] font-medium block mb-1">SKU Code</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. ERP-CLOUD-01"
                   value={productForm.sku}
                   onChange={(e) => setProductForm({ ...productForm, sku: e.target.value.toUpperCase() })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white font-mono"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] font-mono focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-400 block mb-1">Sales Price (₹)</label>
+                  <label className="text-[#334155] font-medium block mb-1">Sales Price (₹)</label>
                   <input
                     type="number"
                     step="0.01"
                     required
                     value={productForm.salesPrice}
                     onChange={(e) => setProductForm({ ...productForm, salesPrice: parseFloat(e.target.value) || 0 })}
-                    className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white font-mono"
+                    className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] font-mono focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1">Cost Price (₹)</label>
+                  <label className="text-[#334155] font-medium block mb-1">Cost Price (₹)</label>
                   <input
                     type="number"
                     step="0.01"
                     required
                     value={productForm.costPrice}
                     onChange={(e) => setProductForm({ ...productForm, costPrice: parseFloat(e.target.value) || 0 })}
-                    className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white font-mono"
+                    className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] font-mono focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Description</label>
+                <label className="text-[#334155] font-medium block mb-1">Description</label>
                 <textarea
                   rows={2}
                   value={productForm.description}
                   onChange={(e) => setProductForm({ ...productForm, description: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 />
               </div>
 
@@ -1413,14 +1411,14 @@ export default function SubscriptionManagementSystem() {
                 <button
                   type="button"
                   onClick={() => setShowProductModal(false)}
-                  className="flex-1 py-2.5 rounded-xl bg-slate-800 text-slate-300 font-medium cursor-pointer"
+                  className="flex-1 py-2.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0] font-medium cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium cursor-pointer"
+                  className="flex-1 py-2.5 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold cursor-pointer shadow-sm"
                 >
                   Create Product
                 </button>
@@ -1434,22 +1432,22 @@ export default function SubscriptionManagementSystem() {
       {/* MODAL: CREATE PLAN (ADMIN CAN UPDATE EVERYTHING)                           */}
       {/* ========================================================================= */}
       {showPlanModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="glass-panel w-full max-w-md rounded-2xl p-6 border border-white/10 space-y-4">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <h3 className="font-bold text-white text-base">Create Subscription Plan Tier</h3>
-              <button onClick={() => setShowPlanModal(false)} className="text-slate-400 hover:text-white cursor-pointer">
+        <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-md rounded-2xl p-6 border border-[#E2E8F0] shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+              <h3 className="font-bold text-[#0F172A] text-base">Create Subscription Plan Tier</h3>
+              <button onClick={() => setShowPlanModal(false)} className="text-[#64748B] hover:text-[#0F172A] font-bold cursor-pointer">
                 ✕
               </button>
             </div>
 
             <form onSubmit={handleCreatePlan} className="space-y-3.5 text-xs">
               <div>
-                <label className="text-slate-400 block mb-1">Associate with Product</label>
+                <label className="text-[#334155] font-medium block mb-1">Associate with Product</label>
                 <select
                   value={planForm.productId}
                   onChange={(e) => setPlanForm({ ...planForm, productId: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 >
                   {products.map((p) => (
                     <option key={p.id} value={p.id}>
@@ -1460,36 +1458,36 @@ export default function SubscriptionManagementSystem() {
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Plan Name</label>
+                <label className="text-[#334155] font-medium block mb-1">Plan Name</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. Growth Monthly Tier"
                   value={planForm.name}
                   onChange={(e) => setPlanForm({ ...planForm, name: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Plan Code</label>
+                <label className="text-[#334155] font-medium block mb-1">Plan Code</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. PLAN-GROWTH-MO"
                   value={planForm.code}
                   onChange={(e) => setPlanForm({ ...planForm, code: e.target.value.toUpperCase() })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white font-mono"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] font-mono focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-400 block mb-1">Billing Frequency</label>
+                  <label className="text-[#334155] font-medium block mb-1">Billing Frequency</label>
                   <select
                     value={planForm.billingFrequency}
                     onChange={(e) => setPlanForm({ ...planForm, billingFrequency: e.target.value })}
-                    className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                    className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                   >
                     <option value="DAILY">Daily</option>
                     <option value="WEEKLY">Weekly</option>
@@ -1499,32 +1497,34 @@ export default function SubscriptionManagementSystem() {
                 </div>
 
                 <div>
-                  <label className="text-slate-400 block mb-1">Recurring Price (₹)</label>
+                  <label className="text-[#334155] font-medium block mb-1">Recurring Price (₹)</label>
                   <input
                     type="number"
                     step="0.01"
                     required
                     value={planForm.price}
                     onChange={(e) => setPlanForm({ ...planForm, price: parseFloat(e.target.value) || 0 })}
-                    className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white font-mono"
+                    className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] font-mono focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                   />
                 </div>
               </div>
 
               <div className="flex gap-4 pt-2">
-                <label className="flex items-center gap-2 cursor-pointer text-slate-300">
+                <label className="flex items-center gap-2 cursor-pointer text-[#334155] font-medium">
                   <input
                     type="checkbox"
                     checked={planForm.isPauseAllowed}
                     onChange={(e) => setPlanForm({ ...planForm, isPauseAllowed: e.target.checked })}
+                    className="rounded text-[#4F46E5] focus:ring-[#EEF2FF]"
                   />
                   <span>Pause Allowed</span>
                 </label>
-                <label className="flex items-center gap-2 cursor-pointer text-slate-300">
+                <label className="flex items-center gap-2 cursor-pointer text-[#334155] font-medium">
                   <input
                     type="checkbox"
                     checked={planForm.isRenewalAllowed}
                     onChange={(e) => setPlanForm({ ...planForm, isRenewalAllowed: e.target.checked })}
+                    className="rounded text-[#4F46E5] focus:ring-[#EEF2FF]"
                   />
                   <span>Renewal Allowed</span>
                 </label>
@@ -1534,14 +1534,14 @@ export default function SubscriptionManagementSystem() {
                 <button
                   type="button"
                   onClick={() => setShowPlanModal(false)}
-                  className="flex-1 py-2.5 rounded-xl bg-slate-800 text-slate-300 font-medium cursor-pointer"
+                  className="flex-1 py-2.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0] font-medium cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium cursor-pointer"
+                  className="flex-1 py-2.5 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold cursor-pointer shadow-sm"
                 >
                   Save Plan
                 </button>
@@ -1555,73 +1555,73 @@ export default function SubscriptionManagementSystem() {
       {/* MODAL: ONBOARD NEW CUSTOMER                                                */}
       {/* ========================================================================= */}
       {showCustomerModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="glass-panel w-full max-w-md rounded-2xl p-6 border border-white/10 space-y-4">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <h3 className="font-bold text-white text-base">Onboard New Customer</h3>
-              <button onClick={() => setShowCustomerModal(false)} className="text-slate-400 hover:text-white cursor-pointer">
+        <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-md rounded-2xl p-6 border border-[#E2E8F0] shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+              <h3 className="font-bold text-[#0F172A] text-base">Onboard New Customer</h3>
+              <button onClick={() => setShowCustomerModal(false)} className="text-[#64748B] hover:text-[#0F172A] font-bold cursor-pointer">
                 ✕
               </button>
             </div>
 
             <form onSubmit={handleCreateCustomer} className="space-y-3.5 text-xs">
               <div>
-                <label className="text-slate-400 block mb-1">Company Name</label>
+                <label className="text-[#334155] font-medium block mb-1">Company Name</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. Stark Industries"
                   value={customerForm.companyName}
                   onChange={(e) => setCustomerForm({ ...customerForm, companyName: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Contact Name</label>
+                <label className="text-[#334155] font-medium block mb-1">Contact Name</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. Tony Stark"
                   value={customerForm.contactName}
                   onChange={(e) => setCustomerForm({ ...customerForm, contactName: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-400 block mb-1">Email</label>
+                  <label className="text-[#334155] font-medium block mb-1">Email</label>
                   <input
                     type="email"
                     required
                     placeholder="tony@stark.com"
                     value={customerForm.email}
                     onChange={(e) => setCustomerForm({ ...customerForm, email: e.target.value })}
-                    className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                    className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1">Phone</label>
+                  <label className="text-[#334155] font-medium block mb-1">Phone</label>
                   <input
                     type="text"
                     placeholder="+91 9876543210"
                     value={customerForm.phone}
                     onChange={(e) => setCustomerForm({ ...customerForm, phone: e.target.value })}
-                    className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                    className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Billing Address</label>
+                <label className="text-[#334155] font-medium block mb-1">Billing Address</label>
                 <input
                   type="text"
                   required
                   placeholder="Stark Tower, 5th Avenue"
                   value={customerForm.billingAddressLine1}
                   onChange={(e) => setCustomerForm({ ...customerForm, billingAddressLine1: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 />
               </div>
 
@@ -1629,14 +1629,14 @@ export default function SubscriptionManagementSystem() {
                 <button
                   type="button"
                   onClick={() => setShowCustomerModal(false)}
-                  className="flex-1 py-2.5 rounded-xl bg-slate-800 text-slate-300 font-medium cursor-pointer"
+                  className="flex-1 py-2.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0] font-medium cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium cursor-pointer"
+                  className="flex-1 py-2.5 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold cursor-pointer shadow-sm"
                 >
                   Create Profile
                 </button>
@@ -1650,11 +1650,11 @@ export default function SubscriptionManagementSystem() {
       {/* MODAL: PREPARE QUOTATION                                                  */}
       {/* ========================================================================= */}
       {showQuoteModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="glass-panel w-full max-w-md rounded-2xl p-6 border border-white/10 space-y-4">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <h3 className="font-bold text-white text-base">Prepare Commercial Quotation</h3>
-              <button onClick={() => setShowQuoteModal(false)} className="text-slate-400 hover:text-white cursor-pointer">
+        <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-md rounded-2xl p-6 border border-[#E2E8F0] shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-3">
+              <h3 className="font-bold text-[#0F172A] text-base">Prepare Commercial Quotation</h3>
+              <button onClick={() => setShowQuoteModal(false)} className="text-[#64748B] hover:text-[#0F172A] font-bold cursor-pointer">
                 ✕
               </button>
             </div>
@@ -1694,11 +1694,11 @@ export default function SubscriptionManagementSystem() {
               className="space-y-3.5 text-xs"
             >
               <div>
-                <label className="text-slate-400 block mb-1">Select Customer</label>
+                <label className="text-[#334155] font-medium block mb-1">Select Customer</label>
                 <select
                   value={quoteForm.customerId}
                   onChange={(e) => setQuoteForm({ ...quoteForm, customerId: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 >
                   {customers.map((c) => (
                     <option key={c.id} value={c.id}>
@@ -1709,11 +1709,11 @@ export default function SubscriptionManagementSystem() {
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Select Product Offering</label>
+                <label className="text-[#334155] font-medium block mb-1">Select Product Offering</label>
                 <select
                   value={quoteForm.productId}
                   onChange={(e) => setQuoteForm({ ...quoteForm, productId: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 >
                   {products.map((p) => (
                     <option key={p.id} value={p.id}>
@@ -1724,11 +1724,11 @@ export default function SubscriptionManagementSystem() {
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Select Recurring Plan (Optional)</label>
+                <label className="text-[#334155] font-medium block mb-1">Select Recurring Plan (Optional)</label>
                 <select
                   value={quoteForm.planId}
                   onChange={(e) => setQuoteForm({ ...quoteForm, planId: e.target.value })}
-                  className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                  className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                 >
                   <option value="">-- No recurring plan (One-time) --</option>
                   {plans.map((pl) => (
@@ -1741,25 +1741,25 @@ export default function SubscriptionManagementSystem() {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-slate-400 block mb-1">Quantity</label>
+                  <label className="text-[#334155] font-medium block mb-1">Quantity</label>
                   <input
                     type="number"
                     min="1"
                     required
                     value={quoteForm.quantity}
                     onChange={(e) => setQuoteForm({ ...quoteForm, quantity: parseInt(e.target.value) || 1 })}
-                    className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                    className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] font-mono focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-400 block mb-1">Validity (Days)</label>
+                  <label className="text-[#334155] font-medium block mb-1">Validity (Days)</label>
                   <input
                     type="number"
                     min="1"
                     required
                     value={quoteForm.validDays}
                     onChange={(e) => setQuoteForm({ ...quoteForm, validDays: parseInt(e.target.value) || 15 })}
-                    className="w-full bg-slate-900 border border-white/10 rounded-lg p-2 text-white"
+                    className="w-full bg-white border border-[#E2E8F0] rounded-lg p-2 text-[#0F172A] font-mono focus:border-[#4F46E5] focus:ring-2 focus:ring-[#EEF2FF] outline-hidden"
                   />
                 </div>
               </div>
@@ -1768,14 +1768,14 @@ export default function SubscriptionManagementSystem() {
                 <button
                   type="button"
                   onClick={() => setShowQuoteModal(false)}
-                  className="flex-1 py-2.5 rounded-xl bg-slate-800 text-slate-300 font-medium cursor-pointer"
+                  className="flex-1 py-2.5 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#334155] border border-[#E2E8F0] font-medium cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium cursor-pointer"
+                  className="flex-1 py-2.5 rounded-xl bg-[#4F46E5] hover:bg-[#4338CA] text-white font-semibold cursor-pointer shadow-sm"
                 >
                   Generate Quote
                 </button>
@@ -1785,11 +1785,106 @@ export default function SubscriptionManagementSystem() {
         </div>
       )}
 
+      {/* ========================================================================= */}
+      {/* COLOR LEGEND STRIP (Theme & Palette Specs Token Inspector)                 */}
+      {/* ========================================================================= */}
+      <section className="bg-[#F8FAFC] border-t border-[#E2E8F0] px-6 py-4">
+        {/* <div className="max-w-7xl mx-auto space-y-2">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#0F172A] flex items-center gap-1.5">
+              <span>🎨</span> Theme & Palette Specs &bull; Light Enterprise SaaS Design System
+            </span>
+            <span className="text-[11px] text-[#64748B]">
+              Tokens Active &bull; Canvas: #FFFFFF &bull; Primary Accent: #4F46E5
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2 text-[11px]">
+          
+            <div className="bg-white border border-[#E2E8F0] rounded-lg p-2 flex items-center gap-2 shadow-2xs">
+              <div className="w-5 h-5 rounded border border-[#E2E8F0] bg-[#FFFFFF] shrink-0" />
+              <div className="truncate">
+                <p className="font-semibold text-[#0F172A] leading-none">app</p>
+                <p className="text-[10px] text-[#64748B] font-mono">#FFFFFF</p>
+              </div>
+            </div>
+
+           
+            <div className="bg-white border border-[#E2E8F0] rounded-lg p-2 flex items-center gap-2 shadow-2xs">
+              <div className="w-5 h-5 rounded border border-[#E2E8F0] bg-[#F8FAFC] shrink-0" />
+              <div className="truncate">
+                <p className="font-semibold text-[#0F172A] leading-none">subtle</p>
+                <p className="text-[10px] text-[#64748B] font-mono">#F8FAFC</p>
+              </div>
+            </div>
+
+          
+            <div className="bg-white border border-[#E2E8F0] rounded-lg p-2 flex items-center gap-2 shadow-2xs">
+              <div className="w-5 h-5 rounded border border-[#E2E8F0] bg-[#F1F5F9] shrink-0" />
+              <div className="truncate">
+                <p className="font-semibold text-[#0F172A] leading-none">hover</p>
+                <p className="text-[10px] text-[#64748B] font-mono">#F1F5F9</p>
+              </div>
+            </div>
+
+          
+            <div className="bg-white border border-[#E2E8F0] rounded-lg p-2 flex items-center gap-2 shadow-2xs">
+              <div className="w-5 h-5 rounded border border-[#CBD5E1] bg-[#E2E8F0] shrink-0" />
+              <div className="truncate">
+                <p className="font-semibold text-[#0F172A] leading-none">border</p>
+                <p className="text-[10px] text-[#64748B] font-mono">#E2E8F0</p>
+              </div>
+            </div>
+
+            <div className="bg-white border border-[#E2E8F0] rounded-lg p-2 flex items-center gap-2 shadow-2xs">
+              <div className="w-5 h-5 rounded bg-[#4F46E5] shrink-0" />
+              <div className="truncate">
+                <p className="font-semibold text-[#0F172A] leading-none">brand</p>
+                <p className="text-[10px] text-[#4F46E5] font-mono font-medium">#4F46E5</p>
+              </div>
+            </div>
+
+           
+            <div className="bg-white border border-[#E2E8F0] rounded-lg p-2 flex items-center gap-2 shadow-2xs">
+              <div className="w-5 h-5 rounded border border-[#A7F3D0] bg-[#ECFDF5] flex items-center justify-center text-[10px] text-[#059669] font-bold shrink-0">
+                ✓
+              </div>
+              <div className="truncate">
+                <p className="font-semibold text-[#059669] leading-none">active</p>
+                <p className="text-[10px] text-[#64748B] font-mono">#059669</p>
+              </div>
+            </div>
+
+           
+            <div className="bg-white border border-[#E2E8F0] rounded-lg p-2 flex items-center gap-2 shadow-2xs">
+              <div className="w-5 h-5 rounded border border-[#FDE68A] bg-[#FEF3C7] flex items-center justify-center text-[10px] text-[#D97706] font-bold shrink-0">
+                ⏸
+              </div>
+              <div className="truncate">
+                <p className="font-semibold text-[#D97706] leading-none">paused</p>
+                <p className="text-[10px] text-[#64748B] font-mono">#D97706</p>
+              </div>
+            </div>
+
+      
+            <div className="bg-white border border-[#E2E8F0] rounded-lg p-2 flex items-center gap-2 shadow-2xs">
+              <div className="w-5 h-5 rounded border border-[#FECACA] bg-[#FEE2E2] flex items-center justify-center text-[10px] text-[#DC2626] font-bold shrink-0">
+                !
+              </div>
+              <div className="truncate">
+                <p className="font-semibold text-[#DC2626] leading-none">overdue</p>
+                <p className="text-[10px] text-[#64748B] font-mono">#DC2626</p>
+              </div>
+            </div>
+          </div>
+        </div> */}
+      </section>
+
       {/* Footer */}
-      <footer className="glass-panel px-6 py-4 border-t border-white/10 text-center text-xs text-slate-500">
+      <footer className="bg-white px-6 py-4 border-t border-[#E2E8F0] text-center text-xs text-[#64748B]">
         <p>
           Subscription Management System &bull; Active Role:{' '}
-          <span className="text-indigo-400 font-bold uppercase">{currentRole}</span> &bull; All 8 Phases Implemented &bull; 2026
+          <span className="text-[#4F46E5] font-bold uppercase">{currentRole}</span> &bull; Enterprise Recurring Billing Platform
         </p>
       </footer>
     </div>
