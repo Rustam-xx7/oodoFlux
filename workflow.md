@@ -340,6 +340,7 @@ Phase 8: Testing, Optimization & Deployment
 | DEC-004 | Use npm workspaces for the monorepo | Clean, built-in monorepo support without external tooling prerequisites, perfectly matching the Node 24 runtime | Turborepo, Nx, pnpm | 2026-10-31 | Streamlined local setup and reliable package linking across apps and packages |
 | DEC-005 | Snapshot product prices, tax rates, and discount details on invoice lines | Catalog or tax rule adjustments must never retrospectively alter historical financial documents | Foreign key joins only | 2026-10-31 | Complete legal and regulatory compliance for historical billing records |
 | DEC-006 | Represent Paused as a distinct state with paused timestamp records | Allows resuming subscriptions with explicit policy (e.g. extending expiry vs keeping fixed end-date) | Inactive flag | 2026-10-31 | Clean state machine transitions and auditability of paused intervals |
+| DEC-007 | Adopt Light Enterprise SaaS design system with pure white canvas and electric indigo | Optimizes financial data readability, high contrast, clean card containment, and soft semantic status badges | Dark glassmorphism mode | 2026-10-31 | Uniform light enterprise theme with `#FFFFFF` background, `#E2E8F0` borders, `#4F46E5` accent, soft semantic status pills, and interactive color legend strip |
 
 ---
 
